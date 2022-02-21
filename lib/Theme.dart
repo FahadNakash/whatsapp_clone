@@ -8,19 +8,26 @@ ThemeData lightTheme(BuildContext context){
     appBarTheme: appBarTheme,
     textTheme:Theme.of(context).textTheme.apply(
       bodyColor: kContentColorLightTheme,
-        fontFamily: 'Raleway'
+        fontFamily: 'Raleway',
     ),
     colorScheme: ColorScheme.light().copyWith(
       primary: kPrimaryColor,
       secondary: kSecondryColor,
       error: kErrorColor,
-    )
+    ),
+    bottomNavigationBarTheme:BottomNavigationBarThemeData(
+      unselectedItemColor: kContentColorLightTheme.withOpacity(0.3),
+      selectedItemColor: kContentColorLightTheme,
+      selectedIconTheme: IconThemeData(
+        color: kPrimaryColor
+      )
+    ) 
   );
 }
 ThemeData darkTheme(BuildContext context){
   return ThemeData.dark().copyWith(
     primaryColor: kPrimaryColor,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor:kContentColorLightTheme,
     appBarTheme: appBarTheme,
     textTheme: Theme.of(context).textTheme.apply(
       bodyColor: kContentColorDarkTheme,
@@ -30,10 +37,19 @@ ThemeData darkTheme(BuildContext context){
       primary: kPrimaryColor,
       secondary: kSecondryColor,
       error: kErrorColor,
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: kContentColorLightTheme,
+      selectedItemColor: kContentColorDarkTheme,
+      unselectedItemColor: kContentColorDarkTheme.withOpacity(0.5),
+      selectedIconTheme: IconThemeData(
+        color: kPrimaryColor
+      )
     )
   );
 }
 final appBarTheme=AppBarTheme(
+  color: kPrimaryColor,
   centerTitle: false,
   elevation: 0,
 );

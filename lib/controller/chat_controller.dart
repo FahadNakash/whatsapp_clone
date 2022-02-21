@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import '../models/chat.dart';
 class ChatController extends GetxController{
   static ChatController get chatGetter=>Get.find<ChatController>();
+   Rx<int> currentIndex=0.obs;
   final List<Chat> chatData=[
     Chat(
       name: "Jenny Wilson",
